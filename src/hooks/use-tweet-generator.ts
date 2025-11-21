@@ -1,13 +1,12 @@
 import { useState, useEffect, useCallback } from 'react';
 import {
-  generatePreview,
-  categoryOptions,
-  formatOptions,
-  toneOptions,
+  generatePreview as createPreview,
+  categoryOptions as categoryList,
+  formatOptions as formatList,
+  toneOptions as toneList,
   Category,
   Format,
   Tone,
-  TriggerId,
   TweetConfig,
   DropdownOption
 } from '../utils/tweet-templates';
@@ -17,7 +16,6 @@ interface TweetGeneratorState {
   format: Format | '';
   tone: Tone;
   item: string;
-  triggers: TriggerId[];
   preview: string;
 }
 
@@ -26,7 +24,6 @@ const initialState: TweetGeneratorState = {
   format: '',
   tone: 'sarcastic',
   item: '',
-  triggers: [],
   preview: '📝 Seu tweet aparecerá aqui...'
 };
 
@@ -35,7 +32,6 @@ interface StateUpdates {
   format?: Format | '';
   tone?: Tone;
   item?: string;
-  triggers?: TriggerId[];
   preview?: string;
 }
 
@@ -71,42 +67,30 @@ export function useTweetGenerator() {
     updateState({ item });
   }, [updateState]);
 
-  // Toggle de trigger
-  const toggleTrigger = useCallback((triggerId: TriggerId) => {
-    setState(prev => ({
-      ...prev,
-      triggers: prev.triggers.includes(triggerId)
-        ? prev.triggers.filter(id => id !== triggerId)
-        : [...prev.triggers, triggerId]
-    }));
-  }, []);
-
   // Gerar preview em tempo real
   useEffect(() => {
-    if (state.category && state.format && state.item && state.tone) {
+    if (state.category && state.format && state.item) {
       const config: TweetConfig = {
         category: state.category,
         format: state.format,
-        tone: state.tone,
-        item: state.item,
-        triggers: state.triggers
+        item: state.item
       };
-      const preview = generatePreview(config);
+      const preview = createPreview(config);
       updateState({ preview });
     } else {
       updateState({ preview: initialState.preview });
     }
-  }, [state.category, state.format, state.item, state.tone, state.triggers, updateState]);
+  }, [state.category, state.format, state.item, updateState]);
 
   // Verificar se pode copiar
   const canCopy = Boolean(state.category && state.format && state.item);
 
   // Obter opções baseado na categoria selecionada
-  const getCategoryOptions = useCallback((): DropdownOption[] => categoryOptions, []);
+  const getCategoryOptions = useCallback((): DropdownOption[] => categoryList, []);
 
-  const getFormatOptions = useCallback((): DropdownOption[] => formatOptions, []);
+  const getFormatOptions = useCallback((): DropdownOption[] => formatList, []);
 
-  const getToneOptions = useCallback((): DropdownOption[] => toneOptions, []);
+  const getToneOptions = useCallback((): DropdownOption[] => toneList, []);
 
   // Obter opções de itens baseado na categoria
   const getItemOptions = useCallback((): DropdownOption[] => {
@@ -116,18 +100,17 @@ export function useTweetGenerator() {
       case 'frameworks':
         return [
           { value: 'React', label: 'React' },
-          { value: 'Angular', label: 'Angular' },
-          { value: 'Vue', label: 'Vue' },
-          { value: 'Next', label: 'Next.js' },
-          { value: 'Nuxt', label: 'Nuxt.js' }
+          { value: 'Django', label: 'Django' },
+          { value: 'Laravel', label: 'Laravel' },
+          { value: 'Spring', label: 'Spring' }
         ];
       case 'linguagens':
         return [
           { value: 'JavaScript', label: 'JavaScript' },
-          { value: 'TypeScript', label: 'TypeScript' },
           { value: 'Python', label: 'Python' },
           { value: 'Java', label: 'Java' },
-          { value: 'PHP', label: 'PHP' }
+          { value: 'PHP', label: 'PHP' },
+          { value: 'C#', label: 'C#' }
         ];
       case 'metodologias':
         return [
@@ -144,6 +127,11 @@ export function useTweetGenerator() {
           { value: 'Postman', label: 'Postman' },
           { value: 'MongoDB Compass', label: 'MongoDB Compass' }
         ];
+      case 'bancos':
+        return [
+          { value: 'SQL', label: 'SQL' },
+          { value: 'NoSQL', label: 'NoSQL' }
+        ];
       default:
         return [];
     }
@@ -155,7 +143,6 @@ export function useTweetGenerator() {
     format: state.format,
     tone: state.tone,
     item: state.item,
-    triggers: state.triggers,
     preview: state.preview,
 
     // Actions
@@ -163,7 +150,6 @@ export function useTweetGenerator() {
     setFormat,
     setTone,
     setItem,
-    toggleTrigger,
 
     // Getters
     canCopy,

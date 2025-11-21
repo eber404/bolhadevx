@@ -1,30 +1,26 @@
-import React from 'react';
-import { CheckboxWin95, DropdownWin95 } from '../../ui';
+import React from 'react'
+import { DropdownWin95 } from '../../ui'
 import {
-  engagementTriggers,
-  Category,
-  Format,
-  Tone,
-  TriggerId,
-  DropdownOption
-} from '../../../utils/tweet-templates';
-import styles from './configuration-panel.module.css';
+  Category as TweetCategory,
+  Format as TweetFormat,
+  Tone as TweetTone,
+  DropdownOption as Option,
+} from '../../../utils/tweet-templates'
+import styles from './configuration-panel.module.css'
 
 interface ConfigurationPanelProps {
-  category: Category | '';
-  format: Format | '';
-  tone: Tone;
-  item: string;
-  triggers: TriggerId[];
-  onCategoryChange: (category: Category | '') => void;
-  onFormatChange: (format: Format | '') => void;
-  onToneChange: (tone: Tone) => void;
-  onItemChange: (item: string) => void;
-  onTriggerToggle: (triggerId: TriggerId) => void;
-  getCategoryOptions: () => DropdownOption[];
-  getFormatOptions: () => DropdownOption[];
-  getToneOptions: () => DropdownOption[];
-  getItemOptions: () => DropdownOption[];
+  category: TweetCategory | ''
+  format: TweetFormat | ''
+  tone: TweetTone
+  item: string
+  onCategoryChange: (category: TweetCategory | '') => void
+  onFormatChange: (format: TweetFormat | '') => void
+  onToneChange: (tone: TweetTone) => void
+  onItemChange: (item: string) => void
+  getCategoryOptions: () => Option[]
+  getFormatOptions: () => Option[]
+  getToneOptions: () => Option[]
+  getItemOptions: () => Option[]
 }
 
 const ConfigurationPanel: React.FC<ConfigurationPanelProps> = ({
@@ -32,16 +28,14 @@ const ConfigurationPanel: React.FC<ConfigurationPanelProps> = ({
   format,
   tone,
   item,
-  triggers,
   onCategoryChange,
   onFormatChange,
   onToneChange,
   onItemChange,
-  onTriggerToggle,
   getCategoryOptions,
   getFormatOptions,
   getToneOptions,
-  getItemOptions
+  getItemOptions,
 }) => {
   return (
     <div className={styles.panel}>
@@ -58,7 +52,9 @@ const ConfigurationPanel: React.FC<ConfigurationPanelProps> = ({
             <DropdownWin95
               id="category"
               value={category}
-              onChange={(e) => onCategoryChange(e.target.value as Category | '')}
+              onChange={(e) =>
+                onCategoryChange(e.target.value as TweetCategory | '')
+              }
               options={getCategoryOptions()}
               placeholder="Selecione uma categoria"
             />
@@ -87,7 +83,7 @@ const ConfigurationPanel: React.FC<ConfigurationPanelProps> = ({
             <DropdownWin95
               id="tone"
               value={tone}
-              onChange={(e) => onToneChange(e.target.value as Tone)}
+              onChange={(e) => onToneChange(e.target.value as TweetTone)}
               options={getToneOptions()}
               placeholder="Selecione o tom"
             />
@@ -100,32 +96,17 @@ const ConfigurationPanel: React.FC<ConfigurationPanelProps> = ({
             <DropdownWin95
               id="format"
               value={format}
-              onChange={(e) => onFormatChange(e.target.value as Format | '')}
+              onChange={(e) =>
+                onFormatChange(e.target.value as TweetFormat | '')
+              }
               options={getFormatOptions()}
               placeholder="Selecione o formato"
             />
           </div>
         </div>
-
-        <div className={styles.triggersSection}>
-          <div className={styles.triggersHeader}>
-            <span>⚡ Gatilhos de Engajamento:</span>
-          </div>
-          <div className={styles.triggersGrid}>
-            {engagementTriggers.map((trigger) => (
-              <CheckboxWin95
-                key={trigger.id}
-                id={trigger.id}
-                checked={triggers.includes(trigger.id)}
-                onChange={() => onTriggerToggle(trigger.id)}
-                label={`${trigger.symbol} ${trigger.label}`}
-              />
-            ))}
-          </div>
-        </div>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default ConfigurationPanel;
+export default ConfigurationPanel

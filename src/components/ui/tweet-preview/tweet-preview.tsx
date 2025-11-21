@@ -1,13 +1,17 @@
-import React from 'react';
-import styles from './tweet-preview.module.css';
+import React from 'react'
+import styles from './tweet-preview.module.css'
 
 interface TweetPreviewProps {
-  preview: string;
-  showHeader?: boolean;
-  className?: string;
+  preview: string
+  showHeader?: boolean
+  className?: string
 }
 
-const TweetPreview: React.FC<TweetPreviewProps> = ({ preview, showHeader = true, className = '' }) => {
+const TweetPreview: React.FC<TweetPreviewProps> = ({
+  preview,
+  showHeader = true,
+  className = '',
+}) => {
   return (
     <div className={`${styles.tweetPreview} ${className}`}>
       {showHeader && (
@@ -18,9 +22,7 @@ const TweetPreview: React.FC<TweetPreviewProps> = ({ preview, showHeader = true,
 
       <div className={styles.tweetContainer}>
         <div className={styles.tweetContent}>
-          <div className={styles.tweetText}>
-            {preview}
-          </div>
+          <div className={styles.tweetText}>{preview}</div>
 
           <div className={styles.tweetMeta}>
             <span className={styles.timestamp}>há 1s</span>
@@ -30,7 +32,7 @@ const TweetPreview: React.FC<TweetPreviewProps> = ({ preview, showHeader = true,
         </div>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default TweetPreview;
+export default TweetPreview

@@ -4,7 +4,6 @@
   border-width: var(--border-width);
   border-color: var(--win95-bevel-light) var(--win95-bevel-dark) var(--win95-bevel-dark) var(--win95-bevel-light);
   padding: 0 var(--spacing-sm);
-  height: var(--button-height);
   font-family: var(--font-family);
   font-size: var(--font-size-body);
   color: var(--win95-black);

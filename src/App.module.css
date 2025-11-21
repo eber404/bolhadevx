@@ -24,7 +24,6 @@
 
 .preview {
   flex: 1;
-  min-height: 150px;
 }
 
 .copySection {
@@ -38,7 +37,6 @@
   min-width: 120px;
   font-size: var(--font-size-label);
   font-weight: bold;
-  height: 28px;
   padding: 0 var(--spacing-md);
 }
 
@@ -91,17 +89,13 @@
     width: 100%;
     min-width: auto;
     font-size: var(--font-size-body);
-    height: 26px;
   }
 
   .copySection {
     padding: var(--spacing-sm) 0;
   }
 
-  .preview {
-    min-height: 120px;
   }
-}
 
 @media (max-width: 480px) {
   .content {
@@ -110,7 +104,6 @@
   }
 
   .copyButton {
-    height: 24px;
     font-size: var(--font-size-small);
   }
 

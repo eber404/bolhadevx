@@ -2,10 +2,9 @@
   background: var(--win95-gray);
   border-style: solid;
   border-width: var(--border-width);
-  border-color: var(--win95-bevel-light) var(--win95-bevel-dark) var(--win95-bevel-dark) var(--win95-bevel-light);
-  box-shadow:
-    1px 1px 0 var(--win95-bevel-dark),
-    2px 2px 0 var(--win95-black);
+  border-color: var(--win95-bevel-light) var(--win95-bevel-dark)
+    var(--win95-bevel-dark) var(--win95-bevel-light);
+  box-shadow: 1px 1px 0 var(--win95-bevel-dark), 2px 2px 0 var(--win95-black);
   display: flex;
   flex-direction: column;
   overflow: hidden;
@@ -30,14 +29,16 @@
   background: var(--win95-gray);
   border-style: solid;
   border-width: var(--border-width);
-  border-color: var(--win95-inset-dark) var(--win95-inset-light) var(--win95-inset-light) var(--win95-inset-dark);
+  border-color: var(--win95-inset-dark) var(--win95-inset-light)
+    var(--win95-inset-light) var(--win95-inset-dark);
 }
 
 .content::-webkit-scrollbar-thumb {
   background: var(--win95-gray);
   border-style: solid;
   border-width: var(--border-width);
-  border-color: var(--win95-bevel-light) var(--win95-bevel-dark) var(--win95-bevel-dark) var(--win95-bevel-light);
+  border-color: var(--win95-bevel-light) var(--win95-bevel-dark)
+    var(--win95-bevel-dark) var(--win95-bevel-light);
 }
 
 .content::-webkit-scrollbar-corner {
