@@ -1,18 +1,18 @@
-import React from 'react';
-import TitleBar from '../title-bar/title-bar';
-import styles from './main-window.module.css';
+import React from 'react'
+import TitleBar from '../title-bar/title-bar'
+import styles from './main-window.module.css'
 
 interface MainWindowProps extends React.HTMLAttributes<HTMLDivElement> {
-  title?: string;
-  children: React.ReactNode;
-  onClose?: () => void;
-  onMinimize?: () => void;
-  onMaximize?: () => void;
-  showTitleBar?: boolean;
-  showControls?: boolean;
-  className?: string;
-  width?: number | string;
-  height?: number | string;
+  title?: string
+  children: React.ReactNode
+  onClose?: () => void
+  onMinimize?: () => void
+  onMaximize?: () => void
+  showTitleBar?: boolean
+  showControls?: boolean
+  className?: string
+  width?: number | string
+  height?: number | string
 }
 
 const MainWindow: React.FC<MainWindowProps> = ({
@@ -47,11 +47,9 @@ const MainWindow: React.FC<MainWindowProps> = ({
         />
       )}
 
-      <div className={styles.content}>
-        {children}
-      </div>
+      <div className={styles.content}>{children}</div>
     </div>
-  );
-};
+  )
+}
 
-export default MainWindow;
+export default MainWindow

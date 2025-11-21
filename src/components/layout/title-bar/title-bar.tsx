@@ -25,7 +25,7 @@ const TitleBar: React.FC<TitleBarProps> = ({
       {...props}
     >
       <div className={styles.titleSection}>
-        <span className={styles.icon}>⬛</span>
+        <img src="/bird.ico" alt="" className={styles.icon} />
         <span className={styles.title}>{title}</span>
       </div>
 

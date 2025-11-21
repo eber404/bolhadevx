@@ -9,17 +9,16 @@
 }
 
 .mainWindow {
-  box-shadow:
-    2px 2px 4px rgba(0, 0, 0, 0.3),
-    4px 4px 8px rgba(0, 0, 0, 0.2);
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3), 4px 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 .content {
   display: flex;
   flex-direction: column;
-  height: 100%;
+  flex: 1;
   padding: var(--spacing-sm);
   gap: var(--spacing-sm);
+  overflow: hidden;
 }
 
 .preview {
@@ -66,14 +65,13 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background-image:
-    repeating-linear-gradient(
-      45deg,
-      transparent,
-      transparent 10px,
-      rgba(255, 255, 255, 0.03) 10px,
-      rgba(255, 255, 255, 0.03) 20px
-    );
+  background-image: repeating-linear-gradient(
+    45deg,
+    transparent,
+    transparent 10px,
+    rgba(255, 255, 255, 0.03) 10px,
+    rgba(255, 255, 255, 0.03) 20px
+  );
   pointer-events: none;
   z-index: -1;
 }
@@ -94,8 +92,7 @@
   .copySection {
     padding: var(--spacing-sm) 0;
   }
-
-  }
+}
 
 @media (max-width: 480px) {
   .content {
@@ -113,7 +110,6 @@
 
   .mainWindow {
     width: 100vw !important;
-    height: 100vh !important;
     border-radius: 0;
     box-shadow: none;
   }

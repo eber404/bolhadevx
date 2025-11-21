@@ -70,7 +70,7 @@ export const tweetTemplates: TweetTemplates = {
     ],
     thread: [
       'Verdades sobre {language} que ninguém quer ouvir:\n\n1/ Se você gosta, tem problemas',
-      'Motivos pelos quais {language} ainda existe:\n\n1. Legacy code\n2. Pessoas que não sabem melhor\n3. Masochismo',
+      'Motivos pelos quais {language} ainda existe:\n\n1. Legacy code\n2. Pessoas que não sabem melhor\n3. Masoquismo',
       'Carreira {language} vs {alternative}:\n\n{language}: Job security\n{alternative}: Actually shipping software',
       'Dia na vida de dev {language}:\n\n10h: Começa a codar\n10h30: Primeiro TypeError\n11h: Debugging\n18h: Ainda debugando\n19h: Descobre que era problema de tipagem',
     ],

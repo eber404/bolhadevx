@@ -49,16 +49,13 @@
 @media (max-width: 768px) {
   .mainWindow {
     width: 95vw !important;
-    height: 90vh !important;
     max-width: 600px;
-    max-height: 800px;
   }
 }
 
 @media (max-width: 480px) {
   .mainWindow {
     width: 100vw !important;
-    height: 100vh !important;
     border-radius: 0;
     box-shadow: none;
   }
