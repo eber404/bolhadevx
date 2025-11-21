@@ -1,0 +1,62 @@
+.win95Button {
+  background: var(--win95-gray);
+  border-style: solid;
+  border-width: var(--border-width);
+  border-color: var(--win95-bevel-light) var(--win95-bevel-dark) var(--win95-bevel-dark) var(--win95-bevel-light);
+  padding: 0 var(--spacing-sm);
+  height: var(--button-height);
+  font-family: var(--font-family);
+  font-size: var(--font-size-body);
+  color: var(--win95-black);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  outline: none;
+  user-select: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 75px;
+  position: relative;
+}
+
+.win95Button:hover:not(:disabled) {
+  background: var(--win95-light-gray);
+}
+
+.win95Button:active:not(:disabled),
+.win95Button.active {
+  border-color: var(--win95-bevel-dark) var(--win95-bevel-light) var(--win95-bevel-light) var(--win95-bevel-dark);
+  background: var(--win95-light-gray);
+  transform: translate(1px, 1px);
+}
+
+.win95Button:focus-visible {
+  outline: 1px dotted var(--win95-black);
+  outline-offset: 2px;
+}
+
+.win95Button.disabled {
+  background: var(--win95-dark-gray);
+  color: var(--win95-light-gray);
+  cursor: not-allowed;
+  border-color: var(--win95-dark-gray) var(--win95-dark-gray) var(--win95-dark-gray) var(--win95-dark-gray);
+}
+
+/* Special button styles */
+.win95Button.primary {
+  font-weight: bold;
+}
+
+.win95Button.small {
+  height: 20px;
+  font-size: var(--font-size-small);
+  padding: 0 6px;
+  min-width: 60px;
+}
+
+.win95Button.large {
+  height: 28px;
+  font-size: var(--font-size-label);
+  padding: 0 var(--spacing-md);
+  min-width: 100px;
+}

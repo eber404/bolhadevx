@@ -1,0 +1,69 @@
+/* Windows 95 Core Theme Variables */
+:root {
+  /* System Colors */
+  --win95-gray: #C0C0C0;
+  --win95-white: #FFFFFF;
+  --win95-black: #000000;
+  --win95-dark-gray: #808080;
+  --win95-light-gray: #DFDFDF;
+  --win95-silver: #A8A8A8;
+
+  /* 3D Effect Colors */
+  --win95-bevel-light: #FFFFFF;
+  --win95-bevel-dark: #808080;
+  --win95-bevel-shadow: #000000;
+  --win95-inset-light: #DFDFDF;
+  --win95-inset-dark: #808080;
+
+  /* Accent Colors */
+  --win95-blue: #000080;
+  --win95-light-blue: #1084D0;
+  --win95-red: #800000;
+  --win95-light-red: #FF0000;
+  --win95-green: #008000;
+  --win95-light-green: #00FF00;
+
+  /* Typography */
+  --font-family: 'MS Sans Serif', 'Segoe UI', system-ui, -apple-system, sans-serif;
+  --font-size-title: 11pt;
+  --font-size-label: 9pt;
+  --font-size-body: 8pt;
+  --font-size-small: 7pt;
+
+  /* Spacing - 4px grid system */
+  --spacing-xs: 4px;
+  --spacing-sm: 8px;
+  --spacing-md: 12px;
+  --spacing-lg: 16px;
+  --spacing-xl: 20px;
+
+  /* Dimensions */
+  --button-height: 23px;
+  --border-width: 2px;
+  --border-radius: 0;
+
+  /* Animations */
+  --transition-fast: 150ms;
+  --transition-normal: 200ms;
+  --transition-slow: 300ms;
+}
+
+/* High Contrast Theme */
+@media (prefers-contrast: high) {
+  :root {
+    --win95-gray: #FFFFFF;
+    --win95-dark-gray: #000000;
+    --win95-light-gray: #F0F0F0;
+    --win95-bevel-light: #FFFFFF;
+    --win95-bevel-dark: #000000;
+  }
+}
+
+/* Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --transition-fast: 0ms;
+    --transition-normal: 0ms;
+    --transition-slow: 0ms;
+  }
+}

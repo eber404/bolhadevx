@@ -1,0 +1,64 @@
+.mainWindow {
+  background: var(--win95-gray);
+  border-style: solid;
+  border-width: var(--border-width);
+  border-color: var(--win95-bevel-light) var(--win95-bevel-dark) var(--win95-bevel-dark) var(--win95-bevel-light);
+  box-shadow:
+    1px 1px 0 var(--win95-bevel-dark),
+    2px 2px 0 var(--win95-black);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  position: relative;
+}
+
+.content {
+  flex: 1;
+  padding: var(--spacing-sm);
+  overflow: auto;
+  background: var(--win95-gray);
+  min-height: 0;
+}
+
+/* Scrollbar styling for content area */
+.content::-webkit-scrollbar {
+  width: 16px;
+  height: 16px;
+}
+
+.content::-webkit-scrollbar-track {
+  background: var(--win95-gray);
+  border-style: solid;
+  border-width: var(--border-width);
+  border-color: var(--win95-inset-dark) var(--win95-inset-light) var(--win95-inset-light) var(--win95-inset-dark);
+}
+
+.content::-webkit-scrollbar-thumb {
+  background: var(--win95-gray);
+  border-style: solid;
+  border-width: var(--border-width);
+  border-color: var(--win95-bevel-light) var(--win95-bevel-dark) var(--win95-bevel-dark) var(--win95-bevel-light);
+}
+
+.content::-webkit-scrollbar-corner {
+  background: var(--win95-gray);
+}
+
+/* Responsive sizing */
+@media (max-width: 768px) {
+  .mainWindow {
+    width: 95vw !important;
+    height: 90vh !important;
+    max-width: 600px;
+    max-height: 800px;
+  }
+}
+
+@media (max-width: 480px) {
+  .mainWindow {
+    width: 100vw !important;
+    height: 100vh !important;
+    border-radius: 0;
+    box-shadow: none;
+  }
+}

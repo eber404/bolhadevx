@@ -1,0 +1,126 @@
+.progressBarContainer {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xs);
+  margin: var(--spacing-sm) 0;
+}
+
+.message {
+  font-family: var(--font-family);
+  font-size: var(--font-size-body);
+  color: var(--win95-black);
+  text-align: center;
+  font-style: italic;
+  animation: blink 1s infinite;
+}
+
+@keyframes blink {
+  0%, 50% { opacity: 1; }
+  51%, 100% { opacity: 0.7; }
+}
+
+.progressBar {
+  background: var(--win95-white);
+  border-style: solid;
+  border-width: var(--border-width);
+  border-color: var(--win95-inset-dark) var(--win95-inset-light) var(--win95-inset-light) var(--win95-inset-dark);
+  height: 20px;
+  position: relative;
+  overflow: hidden;
+}
+
+.progressFill {
+  background: repeating-linear-gradient(
+    45deg,
+    var(--win95-blue),
+    var(--win95-blue) 5px,
+    var(--win95-light-blue) 5px,
+    var(--win95-light-blue) 10px
+  );
+  height: 100%;
+  transition: width var(--transition-normal) ease-out;
+  position: relative;
+  animation: progressAnimation 2s infinite linear;
+}
+
+@keyframes progressAnimation {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 28px 0;
+  }
+}
+
+.percentageText {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: var(--font-family);
+  font-size: var(--font-size-small);
+  color: var(--win95-white);
+  font-weight: bold;
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
+  z-index: 1;
+}
+
+/* Windows 95 style border pattern for progress fill */
+.progressFill::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: repeating-linear-gradient(
+    90deg,
+    transparent,
+    transparent 2px,
+    rgba(255, 255, 255, 0.1) 2px,
+    rgba(255, 255, 255, 0.1) 4px
+  );
+  pointer-events: none;
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  .message {
+    animation: none;
+  }
+
+  .progressFill {
+    animation: none;
+    transition: none;
+  }
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+  .progressBar {
+    height: 18px;
+  }
+
+  .percentageText {
+    font-size: 6pt;
+  }
+
+  .message {
+    font-size: var(--font-size-small);
+  }
+}
+
+@media (max-width: 480px) {
+  .progressBar {
+    height: 16px;
+  }
+
+  .percentageText {
+    font-size: 5pt;
+  }
+
+  .progressBarContainer {
+    gap: 2px;
+    margin: var(--spacing-xs) 0;
+  }
+}

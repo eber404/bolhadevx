@@ -1,0 +1,81 @@
+.titleBar {
+  background: linear-gradient(90deg,
+    var(--win95-blue) 0%,
+    var(--win95-blue) 50%,
+    var(--win95-light-blue) 50%,
+    var(--win95-light-blue) 100%);
+  color: var(--win95-white);
+  padding: 2px var(--spacing-sm);
+  font-weight: bold;
+  font-size: var(--font-size-label);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: default;
+  user-select: none;
+}
+
+.titleSection {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+  flex: 1;
+}
+
+.icon {
+  font-size: var(--font-size-body);
+  line-height: 1;
+}
+
+.title {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  line-height: 1.2;
+}
+
+.controls {
+  display: flex;
+  gap: 2px;
+}
+
+.titleBarButton {
+  background: var(--win95-gray);
+  border: none;
+  width: 16px;
+  height: 14px;
+  margin-left: 2px;
+  font-family: var(--font-family);
+  font-size: 10px;
+  color: var(--win95-black);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: normal;
+  line-height: 1;
+}
+
+.titleBarButton:hover {
+  background: var(--win95-light-gray);
+}
+
+.titleBarButton:active {
+  border: 1px inset var(--win95-dark-gray);
+  background: var(--win95-gray);
+}
+
+.titleBarButton:focus-visible {
+  outline: 1px dotted var(--win95-white);
+  outline-offset: 1px;
+}
+
+.closeButton:hover {
+  background: var(--win95-light-red);
+  color: var(--win95-white);
+}
+
+.closeButton:active {
+  background: var(--win95-red);
+  color: var(--win95-white);
+}

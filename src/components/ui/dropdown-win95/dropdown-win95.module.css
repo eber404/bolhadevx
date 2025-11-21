@@ -1,0 +1,54 @@
+.dropdown {
+  background: var(--win95-white);
+  border-style: solid;
+  border-width: var(--border-width);
+  border-color: var(--win95-inset-dark) var(--win95-inset-light) var(--win95-inset-light) var(--win95-inset-dark);
+  padding: 2px var(--spacing-xs);
+  font-family: var(--font-family);
+  font-size: var(--font-size-body);
+  color: var(--win95-black);
+  cursor: pointer;
+  outline: none;
+  min-height: var(--button-height);
+  transition: all var(--transition-fast);
+}
+
+.dropdown:focus-visible {
+  outline: 1px dotted var(--win95-black);
+  outline-offset: -2px;
+}
+
+.dropdown:hover:not(:disabled) {
+  background: var(--win95-light-gray);
+}
+
+.dropdown:disabled {
+  background: var(--win95-gray);
+  color: var(--win95-dark-gray);
+  cursor: not-allowed;
+  border-color: var(--win95-dark-gray) var(--win95-light-gray) var(--win95-light-gray) var(--win95-dark-gray);
+}
+
+.dropdown option {
+  background: var(--win95-white);
+  color: var(--win95-black);
+  padding: 2px var(--spacing-xs);
+}
+
+.dropdown option:disabled {
+  color: var(--win95-dark-gray);
+}
+
+/* Custom dropdown arrow styling */
+.dropdown {
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%23000' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e");
+  background-position: right var(--spacing-xs) center;
+  background-repeat: no-repeat;
+  background-size: 12px;
+  padding-right: calc(var(--spacing-xs) + 16px);
+}
+
+.dropdown:disabled {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%23808' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e");
+}

@@ -1,0 +1,106 @@
+.modalContent {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding: var(--spacing-sm);
+}
+
+.tweetSection {
+  flex: 1;
+  margin-bottom: var(--spacing-md);
+  min-height: 120px;
+}
+
+.finalTweet {
+  height: 100%;
+}
+
+.finalTweet .tweetContainer {
+  min-height: 100px;
+  max-height: 150px;
+  overflow-y: auto;
+}
+
+.actions {
+  display: flex;
+  justify-content: center;
+  padding: var(--spacing-sm) 0;
+  border-top: 1px solid var(--win95-dark-gray);
+}
+
+.copyButton {
+  min-width: 100px;
+  font-weight: bold;
+}
+
+.copyButton.copied {
+  background: var(--win95-light-green);
+  color: var(--win95-black);
+}
+
+.errorMessage {
+  margin-top: var(--spacing-sm);
+  padding: var(--spacing-xs);
+  background: var(--win95-light-red);
+  border: 1px solid var(--win95-red);
+  color: var(--win95-black);
+  font-family: var(--font-family);
+  font-size: var(--font-size-body);
+  text-align: center;
+}
+
+/* Success animation */
+.copyButton.copied {
+  animation: copySuccess 0.5s ease-out;
+}
+
+@keyframes copySuccess {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+  .modalContent {
+    padding: var(--spacing-xs);
+  }
+
+  .actions {
+    padding: var(--spacing-xs) 0;
+  }
+
+  .tweetSection {
+    margin-bottom: var(--spacing-sm);
+  }
+
+  .copyButton {
+    width: 100%;
+    min-width: auto;
+  }
+}
+
+@media (max-width: 480px) {
+  .modalContent {
+    padding: 4px;
+  }
+
+  .actions {
+    padding: 4px 0;
+  }
+
+  .copyButton {
+    min-height: 30px;
+  }
+
+  .finalTweet .tweetContainer {
+    min-height: 80px;
+    max-height: 120px;
+  }
+}

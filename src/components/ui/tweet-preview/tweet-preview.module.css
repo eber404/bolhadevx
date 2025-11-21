@@ -1,0 +1,111 @@
+.tweetPreview {
+  background: var(--win95-gray);
+  border-style: solid;
+  border-width: var(--border-width);
+  border-color: var(--win95-inset-dark) var(--win95-inset-light) var(--win95-inset-light) var(--win95-inset-dark);
+  padding: var(--spacing-sm);
+  margin-bottom: var(--spacing-sm);
+}
+
+.previewHeader {
+  font-weight: bold;
+  font-size: var(--font-size-label);
+  color: var(--win95-black);
+  margin-bottom: var(--spacing-sm);
+  padding-bottom: var(--spacing-xs);
+  border-bottom: 1px solid var(--win95-dark-gray);
+}
+
+.tweetContainer {
+  background: var(--win95-white);
+  border-style: solid;
+  border-width: 1px;
+  border-color: var(--win95-light-gray);
+  padding: var(--spacing-sm);
+  min-height: 100px;
+  border-radius: 2px;
+}
+
+.tweetContent {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+}
+
+.tweetText {
+  font-family: var(--font-family);
+  font-size: var(--font-size-body);
+  color: var(--win95-black);
+  line-height: 1.4;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  min-height: 60px;
+}
+
+.tweetMeta {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+  font-size: var(--font-size-small);
+  color: var(--win95-dark-gray);
+  border-top: 1px solid var(--win95-light-gray);
+  padding-top: var(--spacing-xs);
+}
+
+.timestamp,
+.source {
+  font-family: var(--font-family);
+}
+
+.divider {
+  font-weight: bold;
+  color: var(--win95-light-gray);
+}
+
+/* Placeholder styling when no content */
+.tweetText:empty::before {
+  content: 'Seu tweet aparecerá aqui...';
+  color: var(--win95-dark-gray);
+  font-style: italic;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+  .tweetPreview {
+    padding: var(--spacing-xs);
+    margin-bottom: var(--spacing-xs);
+  }
+
+  .tweetContainer {
+    padding: var(--spacing-xs);
+  }
+
+  .tweetText {
+    font-size: var(--font-size-small);
+  }
+
+  .tweetMeta {
+    font-size: 6pt;
+    gap: 2px;
+  }
+}
+
+@media (max-width: 480px) {
+  .tweetPreview {
+    padding: 4px;
+  }
+
+  .tweetContainer {
+    padding: 8px;
+    min-height: 80px;
+  }
+
+  .tweetText {
+    font-size: 7pt;
+    min-height: 50px;
+  }
+
+  .tweetMeta {
+    flex-wrap: wrap;
+  }
+}

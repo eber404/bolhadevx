@@ -1,0 +1,215 @@
+/* Windows 95 Theme Styles */
+@import './variables.css';
+
+/* Global Base Styles */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-family);
+  font-size: var(--font-size-body);
+  color: var(--win95-black);
+  background: #008080; /* Classic Windows 95 teal background */
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+/* Windows 95 Base Classes */
+.win95-border {
+  border-style: solid;
+  border-width: var(--border-width);
+}
+
+.win95-border-outset {
+  border-color: var(--win95-bevel-light) var(--win95-bevel-dark) var(--win95-bevel-dark) var(--win95-bevel-light);
+}
+
+.win95-border-inset {
+  border-color: var(--win95-inset-dark) var(--win95-inset-light) var(--win95-inset-light) var(--win95-inset-dark);
+}
+
+.win95-button-base {
+  background: var(--win95-gray);
+  border-style: solid;
+  border-width: var(--border-width);
+  border-color: var(--win95-bevel-light) var(--win95-bevel-dark) var(--win95-bevel-dark) var(--win95-bevel-light);
+  padding: 0 var(--spacing-sm);
+  height: var(--button-height);
+  font-family: var(--font-family);
+  font-size: var(--font-size-body);
+  color: var(--win95-black);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  outline: none;
+  user-select: none;
+}
+
+.win95-button-base:hover:not(:disabled) {
+  background: var(--win95-light-gray);
+}
+
+.win95-button-base:active:not(:disabled),
+.win95-button-base.active {
+  border-color: var(--win95-bevel-dark) var(--win95-bevel-light) var(--win95-bevel-light) var(--win95-bevel-dark);
+  background: var(--win95-light-gray);
+}
+
+.win95-button-base:disabled {
+  background: var(--win95-dark-gray);
+  color: var(--win95-light-gray);
+  cursor: not-allowed;
+  border-color: var(--win95-dark-gray) var(--win95-dark-gray) var(--win95-dark-gray) var(--win95-dark-gray);
+}
+
+.win95-window {
+  background: var(--win95-gray);
+  border-style: solid;
+  border-width: var(--border-width);
+  border-color: var(--win95-bevel-light) var(--win95-bevel-dark) var(--win95-bevel-dark) var(--win95-bevel-light);
+  box-shadow:
+    1px 1px 0 var(--win95-bevel-dark),
+    2px 2px 0 var(--win95-black);
+}
+
+.win95-title-bar {
+  background: linear-gradient(90deg,
+    var(--win95-blue) 0%,
+    var(--win95-blue) 50%,
+    var(--win95-light-blue) 50%,
+    var(--win95-light-blue) 100%);
+  color: var(--win95-white);
+  padding: 2px var(--spacing-sm);
+  font-weight: bold;
+  font-size: var(--font-size-label);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.win95-title-bar-button {
+  background: var(--win95-gray);
+  border: none;
+  width: 16px;
+  height: 14px;
+  margin-left: 2px;
+  font-family: 'Webdings', sans-serif;
+  font-size: 10px;
+  color: var(--win95-black);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.win95-title-bar-button:hover {
+  background: var(--win95-light-gray);
+}
+
+.win95-title-bar-button:active {
+  border: 1px inset var(--win95-dark-gray);
+}
+
+.win95-input-base {
+  background: var(--win95-white);
+  border-style: solid;
+  border-width: var(--border-width);
+  border-color: var(--win95-inset-dark) var(--win95-inset-light) var(--win95-inset-light) var(--win95-inset-dark);
+  padding: 2px var(--spacing-xs);
+  font-family: var(--font-family);
+  font-size: var(--font-size-body);
+  color: var(--win95-black);
+  outline: none;
+}
+
+.win95-input-base:focus {
+  outline: 1px dotted var(--win95-black);
+  outline-offset: -2px;
+}
+
+.win95-select-base {
+  background: var(--win95-white);
+  border-style: solid;
+  border-width: var(--border-width);
+  border-color: var(--win95-inset-dark) var(--win95-inset-light) var(--win95-inset-light) var(--win95-inset-dark);
+  padding: 2px var(--spacing-xs);
+  font-family: var(--font-family);
+  font-size: var(--font-size-body);
+  color: var(--win95-black);
+  cursor: pointer;
+  outline: none;
+}
+
+.win95-select-base:focus {
+  outline: 1px dotted var(--win95-black);
+  outline-offset: -2px;
+}
+
+.win95-checkbox {
+  appearance: none;
+  background: var(--win95-white);
+  border-style: solid;
+  border-width: var(--border-width);
+  border-color: var(--win95-inset-dark) var(--win95-inset-light) var(--win95-inset-light) var(--win95-inset-dark);
+  width: 13px;
+  height: 13px;
+  margin: 0;
+  padding: 0;
+  cursor: pointer;
+  position: relative;
+  outline: none;
+}
+
+.win95-checkbox:focus {
+  outline: 1px dotted var(--win95-black);
+  outline-offset: 1px;
+}
+
+.win95-checkbox:checked::after {
+  content: '✓';
+  position: absolute;
+  top: -2px;
+  left: 1px;
+  color: var(--win95-black);
+  font-size: 8px;
+  font-weight: bold;
+}
+
+.win95-panel {
+  background: var(--win95-gray);
+  border-style: solid;
+  border-width: var(--border-width);
+  border-color: var(--win95-inset-dark) var(--win95-inset-light) var(--win95-inset-light) var(--win95-inset-dark);
+  padding: var(--spacing-sm);
+  margin: var(--spacing-sm);
+}
+
+.win95-label {
+  font-family: var(--font-family);
+  font-size: var(--font-size-label);
+  color: var(--win95-black);
+  margin-bottom: 2px;
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Focus styles for better accessibility */
+*:focus-visible {
+  outline: 2px solid var(--win95-black);
+  outline-offset: 2px;
+}
+
+button:focus-visible,
+input:focus-visible,
+select:focus-visible {
+  outline: 1px dotted var(--win95-black);
+  outline-offset: 1px;
+}

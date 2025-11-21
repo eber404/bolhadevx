@@ -1,0 +1,154 @@
+@import './win95-theme.css';
+
+/* Global Reset and Base Styles */
+#root {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+/* Custom scrollbar for Windows 95 feel */
+::-webkit-scrollbar {
+  width: 16px;
+  height: 16px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--win95-gray);
+  border-style: solid;
+  border-width: var(--border-width);
+  border-color: var(--win95-inset-dark) var(--win95-inset-light) var(--win95-inset-light) var(--win95-inset-dark);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--win95-gray);
+  border-style: solid;
+  border-width: var(--border-width);
+  border-color: var(--win95-bevel-light) var(--win95-bevel-dark) var(--win95-bevel-dark) var(--win95-bevel-light);
+}
+
+::-webkit-scrollbar-button {
+  background: var(--win95-gray);
+  border-style: solid;
+  border-width: var(--border-width);
+}
+
+::-webkit-scrollbar-button:vertical:start {
+  border-color: var(--win95-bevel-light) var(--win95-bevel-dark) var(--win95-dark-gray) var(--win95-inset-light);
+}
+
+::-webkit-scrollbar-button:vertical:end {
+  border-color: var(--win95-dark-gray) var(--win95-inset-dark) var(--win95-bevel-dark) var(--win95-bevel-light);
+}
+
+/* Utility classes */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-left {
+  text-align: left;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.flex {
+  display: flex;
+}
+
+.flex-column {
+  flex-direction: column;
+}
+
+.align-center {
+  align-items: center;
+}
+
+.justify-center {
+  justify-content: center;
+}
+
+.justify-between {
+  justify-content: space-between;
+}
+
+.gap-xs {
+  gap: var(--spacing-xs);
+}
+
+.gap-sm {
+  gap: var(--spacing-sm);
+}
+
+.gap-md {
+  gap: var(--spacing-md);
+}
+
+.gap-lg {
+  gap: var(--spacing-lg);
+}
+
+/* Animation classes for Windows 95 feel */
+@keyframes win95-blink {
+  0%, 50% { opacity: 1; }
+  51%, 100% { opacity: 0; }
+}
+
+.win95-blink {
+  animation: win95-blink 1s infinite;
+}
+
+@keyframes win95-progress {
+  0% { width: 0%; }
+  100% { width: 100%; }
+}
+
+.win95-progress {
+  animation: win95-progress 3s ease-in-out;
+}
+
+/* Modal overlay */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+/* Toast notification */
+.toast {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: var(--win95-gray);
+  border-style: solid;
+  border-width: var(--border-width);
+  border-color: var(--win95-bevel-light) var(--win95-bevel-dark) var(--win95-bevel-dark) var(--win95-bevel-light);
+  padding: var(--spacing-sm) var(--spacing-md);
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  z-index: 2000;
+  max-width: 300px;
+}
