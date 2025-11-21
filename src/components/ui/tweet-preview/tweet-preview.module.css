@@ -5,6 +5,10 @@
   border-color: var(--win95-inset-dark) var(--win95-inset-light) var(--win95-inset-light) var(--win95-inset-dark);
   padding: var(--spacing-sm);
   margin-bottom: var(--spacing-sm);
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-height: 200px;
 }
 
 .previewHeader {
@@ -23,12 +27,18 @@
   border-color: var(--win95-light-gray);
   padding: var(--spacing-sm);
   border-radius: 2px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-height: 0;
 }
 
 .tweetContent {
   display: flex;
   flex-direction: column;
   gap: var(--spacing-sm);
+  flex: 1;
+  min-height: 100px;
 }
 
 .tweetText {
